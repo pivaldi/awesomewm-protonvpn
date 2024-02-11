@@ -11,15 +11,15 @@ this version of Proton, this widget will not work.
 
 The widget in action :
 
-1. Real-time status connection with a tooltip for detailed information (connection up)
+1. Real-time status connection with a **tooltip on mouse hover** (connection up)
    <p align="center">
        <img src="./screenshots/tooltip_up.png" alt="screenshot widget with tooltip up" style="max-width:100%;">
    </p>
-1. Real-time status connection with a tooltip for detailed information (connection down)
+1. Real-time status connection with connection down
    <p align="center">
        <img src="./screenshots/tooltip_down.png" alt="screenshot widget with tooltip down" style="max-width:100%;">
    </p>
-1. Menu to Connect/Disconnect
+1. Menu to Connect/Disconnect accessible **clicking in the widget**
    <p align="center">
        <img src="./screenshots/menu.png" alt="screenshot widget with menu" style="max-width:100%;">
    </p>
@@ -68,3 +68,29 @@ YOUR_LOGIN ALL = NOPASSWD: /root/.local/pipx/venvs/protonvpn-cli/bin/protonvpn
 
 - **Use `sudo visudo -f /etc/sudoers.d/YOUR_LOGIN` to edit the file**
 - **Replace `YOUR_LOGIN` by your login name** ;)
+
+
+## Usage
+
+```lua
+local USER_BIN_DIR = os.getenv("HOME") .. "/bin"
+local proton_widget = require("awesomewm-protonvpn.widget")
+
+…
+
+    -- Add widgets to the wibox
+    s.mywibox:setup {
+      layout = wibox.layout.align.horizontal,
+      { -- Left widgets
+…
+      },
+      s.mytasklist, -- Middle widget
+      { -- Right widgets
+        layout = wibox.layout.fixed.horizontal,
+ …
+          proton_widget({
+              protonvpn_cli_path = USER_BIN_DIR .. "/protonvpn",
+          }),
+…
+```
+
