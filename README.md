@@ -12,22 +12,17 @@ this version of Proton, this widget will not work.
 The widget in action :
 
 1. Real-time status connection with a tooltip for detailed information (connection up)
-
-<p align="center">
- <img src="./screenshots/tooltip_up.png" alt="screenshot widget with tooltip up" style="max-width:100%;">
-</p>
-
+   <p align="center">
+       <img src="./screenshots/tooltip_up.png" alt="screenshot widget with tooltip up" style="max-width:100%;">
+   </p>
 1. Real-time status connection with a tooltip for detailed information (connection down)
-
-<p align="center">
- <img src="./screenshots/tooltip_down.png" alt="screenshot widget with tooltip down" style="max-width:100%;">
-</p>
-
+   <p align="center">
+       <img src="./screenshots/tooltip_down.png" alt="screenshot widget with tooltip down" style="max-width:100%;">
+   </p>
 1. Menu to Connect/Disconnect
-
-<p align="center">
- <img src="./screenshots/menu.png" alt="screenshot widget with menu" style="max-width:100%;">
-</p>
+   <p align="center">
+       <img src="./screenshots/menu.png" alt="screenshot widget with menu" style="max-width:100%;">
+   </p>
 
 ## Customization
 
@@ -36,18 +31,18 @@ some of the following config parameters :
 
 | Name | Default | Description |
 |------|---------|-------------|
-| connect_options | "--sc" | See `protonvpn --help` |
-| timeout | 10 | The online output used in the widget-bar. See [the One-line output](https://github.com/chubin/wttr.in?tab=readme-ov-file#one-line-output) |
-| format_ok | '<span color="#22FF22">⚛</span>' | The markup format to use when connection is up |
-| format_ko | '<span color="#FF2222">☠</span>' | The markup format to use when connection is down |
+| connect_options | "--sc" | See `protonvpn --help` for the connection options |
+| timeout | 10 | The refresh timeout |
+| format_ok | `'<span color="#22FF22">⚛</span>'` | The markup format to use when connection is up |
+| format_ko | `'<span color="#FF2222">☠</span>'` | The markup format to use when connection is down |
 | font | `beautiful.font` | The font to use in the widget bar/tooltip |
-| protonvpn_cli_path | "protonvpn" | See `protonvpn` command path |
+| protonvpn_cli_path | "protonvpn" | `protonvpn` command path. See the following [importante note](https://github.com/pivaldi/awesomewm-protonvpn#important-note) |
 
 ## Important Note
 
 This widget dose not use `sudo` to manage the connections, It is your
 duty to make sure you have the right to execute the `protonvpn`
-command and ensure the security of your system.
+command as `root` with `sudo` and ensure the security of your system.
 
 For example, you can create the file `~/bin/protonvpn` with this kind of code :
 
@@ -57,7 +52,7 @@ For example, you can create the file `~/bin/protonvpn` with this kind of code :
 exec sudo /root/.local/pipx/venvs/protonvpn-cli/bin/protonvpn "$@"
 ```
 
-Make it editable only by root :
+**Make it editable only by root** :
 
 ```bash
 chown root:root ~/bin/protonvpn
@@ -71,5 +66,5 @@ And in the file `/etc/sudoers.d/YOUR_LOGIN` you can add something like this :
 YOUR_LOGIN ALL = NOPASSWD: /root/.local/pipx/venvs/protonvpn-cli/bin/protonvpn
 ```
 
-* **Use `sudo visudo -f /etc/sudoers.d/YOUR_LOGIN` to edit the file**
-* **Replace `YOUR_LOGIN` by your login name ** ;)
+- **Use `sudo visudo -f /etc/sudoers.d/YOUR_LOGIN` to edit the file**
+- **Replace `YOUR_LOGIN` by your login name ** ;)
