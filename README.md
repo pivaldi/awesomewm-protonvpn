@@ -67,4 +67,4 @@ YOUR_LOGIN ALL = NOPASSWD: /root/.local/pipx/venvs/protonvpn-cli/bin/protonvpn
 ```
 
 - **Use `sudo visudo -f /etc/sudoers.d/YOUR_LOGIN` to edit the file**
-- **Replace `YOUR_LOGIN` by your login name ** ;)
+- **Replace `YOUR_LOGIN` by your login name** ;)
